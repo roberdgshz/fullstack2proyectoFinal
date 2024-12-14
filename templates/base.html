@@ -7,6 +7,13 @@
 </head>
 <body>
     <h1>base de la página</h1>
+    {% if user.is_authenticated %}
+        <h1>{{ request.user.first_name }} {{ request.user.last_name }}</h1>
+        <a href="{% url 'account_logout' %}">Cerrar sesión</a>
+    {% else %}
+        <a href="{% url 'account_login' %}">Iniciar sesión</a>
+    {% endif %}
+    
     {% block content %}{% endblock %}
     <footer>
         <p>&copy; Proyecto Fullstack-2, Roberto Grijalva Sánchez. Todos los derechos no reservados...</p>
