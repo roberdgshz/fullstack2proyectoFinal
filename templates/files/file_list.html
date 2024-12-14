@@ -1,0 +1,9 @@
+<h2>Archivos Subidos</h2>
+<ul>
+    {% for file in files %}
+        <li>
+            <a href="{{ file.file.url }}" target="_blank">{{ file.name }}</a> - {{ file.description }}
+        </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'upload_file' %}">Subir otro archivo</a>
