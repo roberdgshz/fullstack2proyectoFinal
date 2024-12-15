@@ -1,0 +1,10 @@
+<h2>Lista de Comentarios</h2>
+<ul>
+    {% for comment in comments %}
+        <li>
+            <strong>{{ comment.user.username }}</strong> ({{ comment.created_at|date:"d M Y H:i" }}): 
+            <p>{{ comment.content }}</p>
+        </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'add_comment' %}">Agregar un Comentario</a>
