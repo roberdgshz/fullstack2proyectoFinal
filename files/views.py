@@ -3,6 +3,9 @@ from .forms import SubirArchivoForm, CommentForm
 from .models import SubirArchivo, Comment
 from django.contrib.auth.decorators import login_required
 
+# Búsquedas
+from django.db.models import Q
+
 # Create your views here.
 def Subir_Archivo(request):
     if request.method == 'POST':
@@ -32,5 +35,12 @@ def add_comment(request):
     return render(request, 'files/add_comment.html', {'form': form})
 
 def comment_list(request):
-    comments = Comment.objects.order_by('-created_at')
-    return render(request, 'files/comment_list.html', {'comments': comments})
+    query = request.GET.get('q')
+    if query:
+        comments = Comment.objects.filter(
+            Q(content__icontains=query) | Q(user__username__icontains=query)
+        ).order_by('-created_at')
+    else:
+        comments = Comment.objects.order_by('-created_at')
+
+    return render(request, 'files/comment_list.html', {'comments': comments, 'query': query})
