@@ -1,0 +1,20 @@
+<h2>Lista de Comentarios</h2>
+
+<form method="get">
+    <input type="text" name="q" value="{{ query }}" placeholder="Buscar comentarios...">
+    <button type="submit">Buscar</button>
+</form>
+
+<ul>
+    {% for comment in comments %}
+        <li>
+            <strong>{{ comment.user.username }}</strong> ({{ comment.created_at|date:"d M Y H:i" }}): 
+            <p>{{ comment.content }}</p>
+        </li>
+    {% empty %}
+        <p>No se encontraron comentarios que coincidan con tu búsqueda.</p>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'add_comment' %}">Agregar un Comentario</a>
+
