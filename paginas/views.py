@@ -3,6 +3,9 @@ from django.views.generic import TemplateView
 class VistaInicio(TemplateView):
     template_name = 'paginas/inicio.html'
 
+class VistaMonedas(TemplateView):
+    template_name = 'paginas/monedas/index.html'
+    
 # página de venta de monedas principal (tienda)
 # página de moneda individual 
 # página de usuario
@@ -12,6 +15,7 @@ class VistaInicio(TemplateView):
 # página de iniciar sesión
 # página de registrarse 
 
-# ------
-# página de "guardados"
-# página de "compras"
+# página contacto
+# página nosotros
+
+##

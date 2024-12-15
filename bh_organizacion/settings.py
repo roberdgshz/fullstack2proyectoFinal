@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google', # Servicio Google
     # Aplicación para archivos
     'files',
+    # Criptomonedas
+    'cryptomonedas',
 ]
 
 SITE_ID = 1
@@ -123,7 +125,7 @@ AUTHENTICATION_BACKENDS = [
 # Configuración de la autenticación de cuenta
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_EMAIL_VERFICATION = "optional"
+ACCOUNT_EMAIL_VERFICATION = 'mandatory'
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = ''
 
@@ -153,10 +155,19 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Cargar de archivos estáticos
 import os
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Carga de archivos multimedia
-MEDIA_URL = '/media/'
+MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# Envíar emails
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = ""
+EMAIL_HOST_PASSWORD = ""
+EMAIL_FROM_EMAIL = "fullstack2@BitBank.com"

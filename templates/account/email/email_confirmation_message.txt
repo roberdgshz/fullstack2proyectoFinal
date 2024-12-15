@@ -1,0 +1,10 @@
+Hola {{ user.get_full_name|default:user.username }},
+
+Por favor verifica tu correo electrónico haciendo clic en el siguiente enlace:
+
+{{ activate_url }}
+
+Si no creaste esta cuenta, ignora este mensaje.
+
+Gracias,
+El equipo de {{ site_name }}
