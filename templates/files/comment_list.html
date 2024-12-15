@@ -1,3 +1,6 @@
+{% extends 'base.html' %}
+
+{% block content %}
 <h2>Lista de Comentarios</h2>
 
 <form method="get">
@@ -17,4 +20,5 @@
 </ul>
 
 <a href="{% url 'add_comment' %}">Agregar un Comentario</a>
+{% endblock %}
 

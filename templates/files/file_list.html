@@ -1,3 +1,6 @@
+{% extends 'base.html' %}
+
+{% block content %}
 <h2>Archivos Subidos</h2>
 <ul>
     {% for file in files %}
@@ -7,3 +10,4 @@
     {% endfor %}
 </ul>
 <a href="{% url 'upload_file' %}">Subir otro archivo</a>
+{% endblock %}
