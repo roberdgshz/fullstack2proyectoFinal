@@ -3,12 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>monedas index</title>
+    <title>Monedas Index</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     {% extends 'paginas/inicio.html' %}
     {% block content %}
-        <h1> index de monedas </h1>
+    <div class="container mt-5">
+        <h1 class="text-center text-primary mb-4">Listado de Monedas</h1>
+
+        <div class="list-group">
+            {% for moneda in monedas %}
+                <a href="{% url 'moneda_info' moneda.id %}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                    <div>
+                        <strong>{{ moneda.nameKey }}</strong> - {{ moneda.name }}
+                    </div>
+                    <span class="badge bg-primary rounded-pill">${{ moneda.value }}</span>
+                </a>
+            {% empty %}
+                <p class="text-center text-muted">No hay resultados</p>
+            {% endfor %}
+        </div>
+    </div>
     {% endblock %}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
