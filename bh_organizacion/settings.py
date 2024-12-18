@@ -42,11 +42,15 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google', # Servicio Google
+    'allauth.socialaccount.providers.github',
     # Aplicación para archivos
     'files',
     # Criptomonedas
     'cryptomonedas',
 ]
+
+SOCIAL_AUTH_GITHUB_KEY = 'Ov23liM2B0fuecO0bbam'
+SOCIAL_AUTH_GITHUB_SECRET = '532f3d842ba9496243030b162fdcea1c4d08b9da'
 
 SITE_ID = 1
 
